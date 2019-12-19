@@ -20,7 +20,7 @@ namespace Records {
 		void displayCurrent() const;
 		void displayFormer() const;
 
-		void read(std::istream&);
+		int read(std::istream&);
 		int write(std::ostream&) const;
 
 	private:

@@ -95,9 +95,10 @@ void readFromFile(EmployeeDB& db) {
     ifstream file(filename);
     if (file.fail()) {
         cout << "fileopen failed: " << filename << endl;
+        return;
     }
 
-    db.read(file);
+    cout << "read " << db.read(file) << " employees..." << endl;
 }
 
 void writeToFile(EmployeeDB& db) {
@@ -109,10 +110,10 @@ void writeToFile(EmployeeDB& db) {
     ofstream file(filename, ios_base::trunc);
     if (file.fail()) {
         cout << "fileopen failed: " << filename << endl;
+        return;
     }
 
-    int count = db.write(file);
-    cout << "wrote " << count << " employees." << endl;
+    cout << "wrote " << db.write(file) << " employees..." << endl;
 }
 
 void doHire(EmployeeDB& db)

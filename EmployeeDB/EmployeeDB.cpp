@@ -63,14 +63,14 @@ namespace Records {
 		}
 	}
 
-	void EmployeeDB::read(std::istream& is)
-	{
+	int EmployeeDB::read(std::istream& is) {
 		int count = 0;
 		string str;
 		
 		for (; is ;) {
 			Employee employee("","");
 			employee.read(is);
+			//@TODO: there may exist an employee with the same id..
 			mEmployees.push_back(employee);
 			++count;
 			if (!is || is.get() == std::char_traits<char>::eof()) {
@@ -78,11 +78,10 @@ namespace Records {
 			}
 		}
 
-		cout << "read " << count << " employees." << endl;
+		return count;
 	}
 
-	int EmployeeDB::write(std::ostream& os) const
-	{
+	int EmployeeDB::write(std::ostream& os) const {
 		int count = 0;
 		int size = mEmployees.size();
 		for (const Employee& employee : mEmployees) {
