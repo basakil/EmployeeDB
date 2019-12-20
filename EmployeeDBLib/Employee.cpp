@@ -123,4 +123,16 @@ namespace Records {
 		os << mEmployeeNumber << '\t' << mFirstName << '\t' << mLastName << '\t' << mHired << '\t' << mSalary;
 	}
 
+	ostream& operator<<(ostream& os, const Employee& emp)
+	{
+		emp.write(os);
+		return os;
+	}
+
+	istream& operator>>(istream& is, Employee& emp)
+	{
+		emp.read(is);
+		return is;
+	}
+
 }

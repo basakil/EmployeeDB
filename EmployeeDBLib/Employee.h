@@ -37,6 +37,9 @@ namespace Records {
 
 		void read(std::istream&);
 		void write(std::ostream&) const;
+
+		friend std::ostream& operator<<(std::ostream& os, const Employee& emp);
+		friend std::istream& operator>>(std::istream& is, Employee& emp);
 	private:
 		std::string mFirstName;
 		std::string mLastName;
